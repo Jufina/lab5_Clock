@@ -1,77 +1,97 @@
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.time.LocalTime;
-import java.util.Date;
 
 public class ArrowHand implements ActionListener {
     public ArrowHand() {
-        ClockFrame.getSecondHand().setA(getAngle());
+        ClockFrame.getArrowPanel().setASecond(getSecondAngle());
+        ClockFrame.getArrowPanel().setAMinute(getMinAngle());
+        ClockFrame.getArrowPanel().setAHour(getHourAngle());
     }
     public void setTime(int h, int m, int s) {
-        x=s%60;
-        hourx=h%12*5+m/12;
-        minx=m%60;
+        sec =s%60;
+        hour =h%12*5+m/12;
+        min =m%60;
+        ClockFrame.getArrowPanel().setASecond(getSecondAngle());
+        ClockFrame.getArrowPanel().setAMinute(getMinAngle());
+        ClockFrame.getArrowPanel().setAHour(getHourAngle());
     }
     public void setCurTime() {
 
         LocalTime lt=LocalTime.now();
-        x=lt.getSecond()+1;
-        minx=lt.getMinute();
-        hourx=lt.getHour()%12*5+minx/12;
+        sec =lt.getSecond()+1;
+        min =lt.getMinute();
+        hour =lt.getHour()%12*5+ min /12;
+        ClockFrame.getArrowPanel().setASecond(getSecondAngle());
+        ClockFrame.getArrowPanel().setAMinute(getMinAngle());
+        ClockFrame.getArrowPanel().setAHour(getHourAngle());
     }
     public String getTime() {
-        return hourx/5+":"+minx+":"+x;
+        if(hour == 0){
+            return 12+":"+ min +":"+ sec;
+        }
+        else
+        {
+            return hour / 5 + ":" + min + ":" + sec;
+        }
     }
     @Override
     public void actionPerformed(ActionEvent e) {
 
+        LocalTime lctcur=LocalTime.now();
+        int h=lctcur.getHour()%12;
+        int m=lctcur.getMinute();
+        int s=lctcur.getSecond();
+
+        System.out.println(h+":"+m+":"+s+"     "+getTime());
 
 
+        ClockFrame.getArrowPanel().setASecond(getSecondAngle());
+        ClockFrame.getArrowPanel().setAMinute(getMinAngle());
+        ClockFrame.getArrowPanel().setAHour(getHourAngle());
+        sec++;
+        if (sec >= 60) {
+            sec = 0;
 
+            min++;
+            if(min == 12 || min == 24 || min == 36 || min == 48 || min == 60)
+            {
+                hour++;}
 
-
-        if (x == 60) {
-            x = 0;
-
-            minx++;
-            if(minx == 12 || minx == 24 || minx == 36 || minx == 48 || minx == 60)
-            {hourx++;}
-
-            if(hourx==60) {hourx=0;}
-            if (minx == 60) {minx=0;}
+            if(hour >=60) {
+                hour =0;}
+            if (min >= 60) {
+                min =0;}
 
 
         }
-            ClockFrame.getSecondHand().setA(getAngle());
-            ClockFrame.getSecondHand().setMinangle(getMinAngle());
-            ClockFrame.getSecondHand().setHourangle(getHourAngle());
-        LocalTime lt2=LocalTime.now();
-        System.out.print(lt2.getHour() + ":" + lt2.getMinute() + ":" + lt2.getSecond() + "     ");
-        System.out.println(getTime());
-        x++;
+
     }
 
-    private double getAngle() {
-        return (x * angle);
+    private double getSecondAngle() {
+        return (sec * angle);
     }
     private double getMinAngle() {
-        return(minx * angle);
+        return(min * angle);
     }
     private double getHourAngle() {
-        return(hourx * angle);
+        return(hour * angle);
     }
     public int getSeconds() {
-        return x;
+        return sec;
     }
     public int getMinutes() {
-        return minx;
+        return min;
     }
     public int getHours() {
-        return hourx;
+        if(hour == 0)
+        {return 12;}
+            else
+        {return hour;}
     }
-    private int x = 0;
-    private int minx=0;
-    private int hourx=0;
+    private int sec = 0;
+    private int min =0;
+    private int hour =0;
     private final double angle = 6 * Math.PI / 180;
 
 }

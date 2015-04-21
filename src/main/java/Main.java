@@ -1,14 +1,9 @@
 import javax.swing.*;
-import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+import java.time.LocalTime;
 
-/**
- * Created by Julia on 20.04.2015.
- */
+
 public class Main {
     static ArrowHand arrowSec;
-    public static int h,s,m;
     public static void main(String[] args) {
 
         ClockFrame frame = new ClockFrame();
@@ -16,13 +11,14 @@ public class Main {
 
 
         arrowSec = new ArrowHand();
-
+        //arrowSec.setTime(17, 0, 0);
         arrowSec.setCurTime();
+        frame.setVisible(true);
         Timer timer = new Timer(1000, arrowSec );
         timer.start();
 
-        frame.setVisible(true);
-        //arrowSec.setTime(12,48,60);
+
+
 
 
     }

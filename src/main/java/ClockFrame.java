@@ -15,7 +15,7 @@ public class ClockFrame extends JFrame {
         add(mainPanel);
 
 
-        secondHand = new SecondHand();
+        secondHand = new ArrowPanel();
         mainPanel.add(secondHand);
 
 
@@ -24,10 +24,10 @@ public class ClockFrame extends JFrame {
     }
 
 
-    public static SecondHand getSecondHand() {
+    public static ArrowPanel getArrowPanel() {
         return secondHand;
     }
 
-    private static SecondHand secondHand;
+    private static ArrowPanel secondHand;
 
 }

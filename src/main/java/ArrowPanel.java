@@ -8,10 +8,10 @@ public class ArrowPanel extends JPanel {
      * Class constructor.
      */
     public ArrowPanel() {
-        setPreferredSize(new Dimension(400, 400));
+        setPreferredSize(new Dimension(300, 400));
     }
     /**
-     * Painint clockface and arrows.
+     * Painting clockface and arrows.
      */
     @Override
     protected void paintComponent(Graphics g) {
@@ -94,7 +94,7 @@ public class ArrowPanel extends JPanel {
     private final int radius = 100;
 
     /**
-     * Setting a new angle and repainting arrow.
+     * Setting a new angle and repainting second arrow.
      * @param ang angle for second arrow.
      */
     public void setASecond(double ang) {
@@ -102,7 +102,7 @@ public class ArrowPanel extends JPanel {
         repaint();
     }
     /**
-     * Setting a new angle and repainting arrow.
+     * Setting a new angle and repainting minute arrow.
      * @param ang angle for minute arrow.
      */
     public void setAMinute(double ang) {
@@ -110,7 +110,7 @@ public class ArrowPanel extends JPanel {
         repaint();
     }
     /**
-     * Setting a new angle and repainting arrow.
+     * Setting a new angle and repainting hour arrow.
      * @param ang angle for hour arrow.
      */
     public void setAHour(double ang) {

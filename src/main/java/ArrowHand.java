@@ -87,31 +87,40 @@ public class ArrowHand implements ActionListener {
         }
 
     }
+
     /**
      * Getting angle for second arrow.
      * @return new angle's value
+     * @see ArrowHand#angle
      */
-    private double getSecondAngle() {
+    public double getSecondAngle() {
         return (sec * angle);
     }
     /**
      * Getting angle for minute arrow.
      * @return new angle's value
+     * @see ArrowHand#angle
      */
-    private double getMinAngle() {
+    public double getMinAngle() {
         return(min * angle);
     }
     /**
      * Getting angle for hour arrow.
      * @return new angle's value
+     * @see ArrowHand#angle
      */
-    private double getHourAngle() {
+    public double getHourAngle() {
         return(hour * angle);
     }
 
     private int sec = 0;
     private int min =0;
     private int hour =0;
-    private final double angle = 6 * Math.PI / 180;
+
+
+    /**
+     * {@value #angle} value for calculating new angle
+     */
+    public static final double angle = 6 * Math.PI / 180;
 
 }

@@ -11,7 +11,7 @@ public class ClockFrame extends JFrame {
      */
     public ClockFrame() {
         setTitle("Clock");
-        setSize(700,700);
+        setSize(400,400);
         setLayout(new FlowLayout());
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         JPanel mainPanel = new JPanel();
@@ -25,6 +25,7 @@ public class ClockFrame extends JFrame {
     /**
      * Getting panel with drawing arrows.
      * @return panel of frame
+     * @see ArrowPanel
      */
     public static ArrowPanel getArrowPanel() {
         return arrPan;

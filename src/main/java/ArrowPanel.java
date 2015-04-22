@@ -4,10 +4,15 @@ import java.awt.geom.Ellipse2D;
 import java.awt.geom.Line2D;
 
 public class ArrowPanel extends JPanel {
+    /**
+     * Class constructor.
+     */
     public ArrowPanel() {
         setPreferredSize(new Dimension(400, 400));
     }
-
+    /**
+     * Painint clockface and arrows.
+     */
     @Override
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
@@ -38,12 +43,12 @@ public class ArrowPanel extends JPanel {
         g2.draw(new Line2D.Double(x0, y0, x1h, y1h));
 
         g2.setColor(Color.BLACK);
-        //Scale
+
         for(int j=1; j<=60; j++){
             int xcbeg,yscbeg, xscend, yscend;
             double andsc;
             int radsc=100;
-            if(j%5==0) { //Scale of hours
+            if(j%5==0) {
 
                 andsc= j* 6 * Math.PI / 180-Math.PI/2;
                 xcbeg = (int) (x0 + ((radius-20) * Math.cos(andsc)));
@@ -53,7 +58,7 @@ public class ArrowPanel extends JPanel {
 
                 g2.draw(new Line2D.Double(xcbeg, yscbeg, xscend, yscend));
 
-            //TEXT
+
                int textx, texty;
                 textx = (int) (x0-5 + ((radius+12) * Math.cos(andsc)));
                 texty = (int) (y0+5 + ((radius+12) * Math.sin(andsc)));
@@ -88,16 +93,26 @@ public class ArrowPanel extends JPanel {
     private final int y0 = 150;
     private final int radius = 100;
 
-
+    /**
+     * Setting a new angle and repainting arrow.
+     * @param ang angle for second arrow.
+     */
     public void setASecond(double ang) {
         as = ang-Math.PI/2;
         repaint();
     }
-
+    /**
+     * Setting a new angle and repainting arrow.
+     * @param ang angle for minute arrow.
+     */
     public void setAMinute(double ang) {
         am=ang-Math.PI/2;
         repaint();
     }
+    /**
+     * Setting a new angle and repainting arrow.
+     * @param ang angle for hour arrow.
+     */
     public void setAHour(double ang) {
         ah = ang-Math.PI/2;
         repaint();

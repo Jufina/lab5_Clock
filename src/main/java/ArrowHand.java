@@ -3,11 +3,20 @@ import java.awt.event.ActionListener;
 import java.time.LocalTime;
 
 public class ArrowHand implements ActionListener {
+    /**
+     * Class constructor.
+     */
     public ArrowHand() {
         ClockFrame.getArrowPanel().setASecond(getSecondAngle());
         ClockFrame.getArrowPanel().setAMinute(getMinAngle());
         ClockFrame.getArrowPanel().setAHour(getHourAngle());
     }
+    /**
+     * Setting a some time.
+     * @param h Count of hours(0-24)(formed to 12-clock format)
+     * @param m Count of minutes(0-60 or above(will be formated)
+     * @param s Count of seconds(0-60 or above(will be formated)
+     */
     public void setTime(int h, int m, int s) {
         sec =s%60;
         hour =h%12*5+m/12;
@@ -16,6 +25,10 @@ public class ArrowHand implements ActionListener {
         ClockFrame.getArrowPanel().setAMinute(getMinAngle());
         ClockFrame.getArrowPanel().setAHour(getHourAngle());
     }
+
+    /**
+     * Setting current local time.
+     */
     public void setCurTime() {
 
         LocalTime lt=LocalTime.now();
@@ -26,6 +39,10 @@ public class ArrowHand implements ActionListener {
         ClockFrame.getArrowPanel().setAMinute(getMinAngle());
         ClockFrame.getArrowPanel().setAHour(getHourAngle());
     }
+    /**
+     * Getting time from clock.
+     * @return String with format "hours:minutes:seconds"
+     */
     public String getTime() {
         if(hour == 0){
             return 12+":"+ min +":"+ sec;
@@ -35,6 +52,9 @@ public class ArrowHand implements ActionListener {
             return hour / 5 + ":" + min + ":" + sec;
         }
     }
+    /**
+     * Action for timer.
+     */
     @Override
     public void actionPerformed(ActionEvent e) {
 
@@ -67,28 +87,28 @@ public class ArrowHand implements ActionListener {
         }
 
     }
-
+    /**
+     * Getting angle for second arrow.
+     * @return new angle's value
+     */
     private double getSecondAngle() {
         return (sec * angle);
     }
+    /**
+     * Getting angle for minute arrow.
+     * @return new angle's value
+     */
     private double getMinAngle() {
         return(min * angle);
     }
+    /**
+     * Getting angle for hour arrow.
+     * @return new angle's value
+     */
     private double getHourAngle() {
         return(hour * angle);
     }
-    public int getSeconds() {
-        return sec;
-    }
-    public int getMinutes() {
-        return min;
-    }
-    public int getHours() {
-        if(hour == 0)
-        {return 12;}
-            else
-        {return hour;}
-    }
+
     private int sec = 0;
     private int min =0;
     private int hour =0;

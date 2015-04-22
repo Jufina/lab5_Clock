@@ -6,6 +6,9 @@ import java.awt.*;
  * Created by Julia on 20.04.2015.
  */
 public class ClockFrame extends JFrame {
+    /**
+     * Class constructor.
+     */
     public ClockFrame() {
         setTitle("Clock");
         setSize(700,700);
@@ -15,19 +18,18 @@ public class ClockFrame extends JFrame {
         add(mainPanel);
 
 
-        secondHand = new ArrowPanel();
-        mainPanel.add(secondHand);
-
-
-
-
+        arrPan = new ArrowPanel();
+        mainPanel.add(arrPan);
     }
 
-
+    /**
+     * Getting panel with drawing arrows.
+     * @return panel of frame
+     */
     public static ArrowPanel getArrowPanel() {
-        return secondHand;
+        return arrPan;
     }
 
-    private static ArrowPanel secondHand;
+    private static ArrowPanel arrPan;
 
 }

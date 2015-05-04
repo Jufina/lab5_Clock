@@ -1,9 +1,22 @@
 apply plugin: 'java'
 apply plugin: 'application'
 
+apply plugin: 'findbugs'
+findbugs {
+    ignoreFailures=true
+    effort="max"
+    reportLevel="low"
+}
+
+tasks.withType(FindBugs) {
+    reports{
+        xml.enabled=false
+        html.enabled=true
+    }
+}
 sourceCompatibility = 1.8
 version = '1.0'
-
+mainClassName='Main'
 repositories {
     mavenCentral()
 }

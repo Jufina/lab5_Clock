@@ -58,13 +58,14 @@ public class ArrowHand implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
 
+        /*
         LocalTime lctcur=LocalTime.now();
         int h=lctcur.getHour()%12;
         int m=lctcur.getMinute();
         int s=lctcur.getSecond();
 
         System.out.println(h+":"+m+":"+s+"     "+getTime());
-
+*/
 
         ClockFrame.getArrowPanel().setASecond(getSecondAngle());
         ClockFrame.getArrowPanel().setAMinute(getMinAngle());

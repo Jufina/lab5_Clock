@@ -19,9 +19,9 @@ public class ArrowPanel extends JPanel {
         Graphics2D g2 = (Graphics2D) g;
 
         g2.setColor(Color.LIGHT_GRAY);
-        g2.fill(new Ellipse2D.Double(x0-100-50/2,y0-100-50/2,radius*2+50,radius*2+50));
+        g2.fill(new Ellipse2D.Double(x0-radius-50/2,y0-radius-50/2,radius*2+50,radius*2+50));
         g2.setColor(Color.BLUE);
-        g2.draw(new Ellipse2D.Double(x0-100-50/2,y0-100-50/2,radius*2+50,radius*2+50));
+        g2.draw(new Ellipse2D.Double(x0-radius-50/2,y0-radius-50/2,radius*2+50,radius*2+50));
 
         x1s = (int) (x0 + (radius * Math.cos(as)));
         y1s = (int) (y0 + (radius * Math.sin(as)));
@@ -89,9 +89,9 @@ public class ArrowPanel extends JPanel {
     }
 
 
-    private final int x0 = 150;
-    private final int y0 = 150;
-    private final int radius = 100;
+    private static final int x0 = 150;
+    private static final int y0 = 150;
+    private static final int radius = 100;
 
     /**
      * Setting a new angle and repainting second arrow.
@@ -123,9 +123,9 @@ public class ArrowPanel extends JPanel {
 
 
 
-    private static double as;
-    private static double am;
-    private static double ah;
+    private double as;
+    private double am;
+    private double ah;
     private int x1s;
     private int y1s;
     private int x1m;

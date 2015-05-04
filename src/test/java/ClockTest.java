@@ -1,4 +1,4 @@
-import com.sun.org.apache.xpath.internal.SourceTree;
+
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -11,7 +11,7 @@ import java.time.LocalTime;
 public class ClockTest {
     @Test
     public void testPositiveSetting24() {
-        ClockFrame frame = new ClockFrame();
+
         ArrowHand arrowSec;
 
 
@@ -27,7 +27,7 @@ public class ClockTest {
 
     @Test //Set to 17:0:0 not to set into 17:0:0
     public void testNotNegativeSetting24() {
-        ClockFrame frame = new ClockFrame();
+
         ArrowHand arrowSec;
 
 
@@ -43,7 +43,7 @@ public class ClockTest {
 
     @Test
     public void testSettingSecondMoreThan60() {
-        ClockFrame frame = new ClockFrame();
+
         ArrowHand arrowSec;
 
 
@@ -61,7 +61,7 @@ public class ClockTest {
 
     @Test
     public void testDynamicSettingTime() {
-        ClockFrame frame = new ClockFrame();
+
         ArrowHand arrowSec;
 
 
@@ -90,7 +90,7 @@ public class ClockTest {
     @Test
     public void testDynamicCurrentTime() {
         System.out.println("testDynamicCurrentTime");
-        ClockFrame frame = new ClockFrame();
+
         ArrowHand arrowSec;
         int h=0,m=0,s=0;
 
